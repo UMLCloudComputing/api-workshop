@@ -3,14 +3,20 @@ import json
 
 app = Flask('api-workshop')
 
-mock_db = {}
+mock_db = {
+    'johndoe57': {
+        'email': 'johndoe@hotmail.com',
+        'age': '19',
+        'gpa': '3.2',
+    }
+}
 
 @app.route('/users', methods=['GET', 'POST', 'PATCH', 'DELETE'])
 def users_interaction():
     username = request.args.get('username')
     email = request.args.get('email')
-    age = int(request.args.get('age'))
-    gpa = float(request.args.get('gpa'))
+    age = request.args.get('age')
+    gpa = request.args.get('gpa')
 
     status_code = None
     if request.method == 'GET':
