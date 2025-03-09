@@ -1,0 +1,67 @@
+body {
+    background-color: rgb(240, 203, 158);
+}
+
+#container {
+    width: 99vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20vw;
+} 
+
+#db-visualization {
+    background-color: white;
+    display: grid;
+    width: fit-content;
+    grid-template-columns: auto auto auto auto;
+    background-color: rgb(182, 219, 255);
+    padding: 5px;
+}
+
+#db-visualization > p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#db-visualization > div {
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    font-size: 24px;
+}
+
+#transactions-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+}
+
+#transactions {
+    height: 60vh;
+    overflow: scroll;
+    background-color: rgb(182, 219, 255);
+    padding: 17px;
+    box-sizing: content-box;
+    text-align: center;
+    min-width: 20vw;
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 36px;
+}
+
+#refresh-button {
+    font-size: 24px;
+}
+
+#error-text {
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+}
