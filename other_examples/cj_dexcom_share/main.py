@@ -28,6 +28,9 @@ params = {
 }
 
 res = requests.post(BASE_URL_US+CURRENT_EGV_ENDPOINT, params=params)
-data = json.loads(res.content.decode().replace('[','').replace(']',''))
+try:
+    data = json.loads(res.content.decode().replace('[','').replace(']',''))
 
-print(f'{data['Value']} {TTREND_ARROW_MAP[data['Trend']]}')
+    print(f'{data['Value']} {TTREND_ARROW_MAP[data['Trend']]}')
+except json.decoder.JSONDecodeError:
+    print('Invalid credentials!')
