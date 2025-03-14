@@ -4,12 +4,14 @@ import json
 
 SERVER_URL = 'http://localhost:5000/users'
 
+# Function to build the URL with query params 
 def build_url(query_params: dict) -> str:
     query_string = urlencode(query_params)
     split_url = list(urlsplit(SERVER_URL))
     split_url[3] = query_string
     return urlunsplit(split_url)
 
+# Code that does a GET interaction with the endpoint
 def get_interaction(username: str) -> None:
     res = requests.get(build_url({'username': username}))
     data = json.loads(res.content)
@@ -18,6 +20,7 @@ def get_interaction(username: str) -> None:
     else:
         print('Not a valid username!')
 
+# Code that does a POST interaction with the endpoint
 def post_interaction(user_data: dict) -> None:
     res = requests.post(build_url(user_data))
     if res.status_code == 201:
@@ -25,6 +28,7 @@ def post_interaction(user_data: dict) -> None:
     else:
         print('Failed to create...')
 
+# Code that does a PATCH interaction with the endpoint
 def patch_interaction(user_data: dict) -> None:
     filtered_data = {}
     print(user_data)
@@ -37,6 +41,7 @@ def patch_interaction(user_data: dict) -> None:
     else:
         print('Failed to update...')
 
+# Code that does a DELETE interaction with the endpoint
 def delete_interaction(username: str) -> None:
     res = requests.delete(build_url({'username': username}))
     if res.status_code == 200:

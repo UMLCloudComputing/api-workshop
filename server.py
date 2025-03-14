@@ -7,10 +7,10 @@ app = Flask('api-workshop')
 CORS(app)
 
 mock_db = {
-    'johndoe57': {
-        'email': 'johndoe@hotmail.com',
-        'age': '19',
-        'gpa': '3.2',
+    'johncloudcomputing': {
+        'email': 'john_cloud@computing.tech',
+        'age': '20',
+        'gpa': '3.25',
     }
 }
 

@@ -12,7 +12,7 @@ See the RESOURCES.md file for the lesson on APIs. It will cover the following:
 
 1) What is an API?
 2) Rest APIs
-3) Basic Information About HTTP Requests
+3) Basic Information About HTTP Requests + Responses
 4) Calling APIs in Python
 5) How to Use Git
 
