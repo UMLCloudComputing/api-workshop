@@ -5,19 +5,19 @@
             let dbContainer = document.getElementById('db-visualization');
             data.items.forEach(element => {
                 let divUsername = document.createElement('div');
-                divUsername.innerText = element.username;
+                divUsername.innerText = element.email;
                 dbContainer.appendChild(divUsername);
         
                 let divEmail = document.createElement('div');
-                divEmail.innerText = element.email;
+                divEmail.innerText = element.name;
                 dbContainer.appendChild(divEmail);
         
                 let divAge = document.createElement('div');
-                divAge.innerText = element.age;
+                divAge.innerText = element.major;
                 dbContainer.appendChild(divAge);
         
                 let divGpa = document.createElement('div');
-                divGpa.innerText = element.gpa;
+                divGpa.innerText = element.year;
                 dbContainer.appendChild(divGpa);
             });
         

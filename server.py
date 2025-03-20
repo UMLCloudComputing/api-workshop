@@ -30,7 +30,7 @@ def users_interaction():
         data = {}
         if email in mock_db.keys():
             data = {
-                'username': email,
+                'email': email,
                 'name': mock_db[email]['name'],
                 'major': mock_db[email]['major'],
                 'year': mock_db[email]['year'],
@@ -88,10 +88,10 @@ def users_interaction():
 @app.route('/database', methods=['GET'])
 def database_interaction():
     data = [{
-        'username': key,
-        'email': mock_db[key]['name'],
-        'age': mock_db[key]['major'],
-        'gpa': mock_db[key]['year']
+        'email': key,
+        'name': mock_db[key]['name'],
+        'major': mock_db[key]['major'],
+        'year': mock_db[key]['year']
     } for key in mock_db.keys()]
 
     transactions_copy = transactions
@@ -102,3 +102,5 @@ def database_interaction():
         status=200,
         mimetype='application/json'
     )
+
+app.run(host='0.0.0.0', port='5000')
