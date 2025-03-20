@@ -12,13 +12,13 @@ def build_url(query_params: dict) -> str:
     return urlunsplit(split_url)
 
 # Code that does a GET interaction with the endpoint
-def get_interaction(username: str) -> None:
-    res = requests.get(build_url({'username': username}))
+def get_interaction(email: str) -> None:
+    res = requests.get(build_url({'email': email}))
     data = json.loads(res.content)
     if res.status_code == 200:
-        print(f'{username}\'s entry:\n' + json.dumps(data, indent=4))
+        print(f'{email}\'s entry:\n' + json.dumps(data, indent=4))
     else:
-        print('Not a valid username!')
+        print('Not a valid email!')
 
 # Code that does a POST interaction with the endpoint
 def post_interaction(user_data: dict) -> None:
@@ -42,8 +42,8 @@ def patch_interaction(user_data: dict) -> None:
         print('Failed to update...')
 
 # Code that does a DELETE interaction with the endpoint
-def delete_interaction(username: str) -> None:
-    res = requests.delete(build_url({'username': username}))
+def delete_interaction(email: str) -> None:
+    res = requests.delete(build_url({'email': email}))
     if res.status_code == 200:
         print('Successfully deleted!')
     else:
@@ -62,37 +62,38 @@ while True:
 
     match choice:
         case '1':
-            username = input('\nEnter a username: ')
-            get_interaction(username)
+            email = input('\nEnter an email: ')
+            get_interaction(email)
         case '2':
-            username = input('\nEnter the new user\'s username: ')
-            email = input('Enter the new user\'s email: ')
-            age = input('Enter the new user\'s age: ')
-            gpa = input ('Enter the new user\'s gpa: ')
+            email = input('\nEnter the new user\'s email: ')
+            name = input('Enter the new user\'s name: ')
+            major = input('Enter the new user\'s major: ')
+            year = input ('Enter the new user\'s year: ')
 
             post_interaction({
-                'username': username,
                 'email': email,
-                'age': age,
-                'gpa': gpa,
+                'name': name,
+                'major': major,
+                'year': year,
             })
         case '3':
-            username = input('\nEnter the username of the user you wish to update: ')
+            email = input('\nEnter the email of the user you wish to update: ')
             print('If you wish to not update them just type None.')
-            email = input('Enter the new email for the user: ')
-            age = input('Enter the new age for the user: ')
-            gpa = input('Enter the new gpa for the user: ')
+            major = input('Enter the new major for the user: ')
+            year = input('Enter the new year for the user: ')
 
             patch_interaction({
-                'username': username,
                 'email': email,
-                'age': age,
-                'gpa': gpa,
+                'name': 'None',
+                'major': major,
+                'year': year,
             })
         case '4':
-            username = input('\nEnter the username of the user you wish to delete: ')
-            delete_interaction(username)
+            email = input('\nEnter the email of the user you wish to delete: ')
+            delete_interaction(email)
         case '5':
             break
+        case _:
+            print('\nInvalid option!')
 
     print('')
