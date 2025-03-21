@@ -1,0 +1,1 @@
+My code makes a request to the Art Institute of Chicago. You input whatever art id you want and you can get the thumbnail information.
