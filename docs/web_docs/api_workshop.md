@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 description: The API Workshop resources. Learn about the fundamentals of API and Git with a simple self-hostable demo. 
 ---
 
